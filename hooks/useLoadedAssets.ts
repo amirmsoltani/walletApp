@@ -15,7 +15,8 @@ export function useLoadedAssets() {
         // Load fonts
         await Font.loadAsync({
           ...Ionicons.font,
-          "space-mono": require("../assets/fonts/SpaceMono-Regular.ttf"),
+          "Roboto-Bold": require("../assets/fonts/Roboto-Bold.ttf"),
+          "Roboto-Regular": require("../assets/fonts/Roboto-Regular.ttf"),
         });
       } catch (e) {
         // We might want to provide this error information to an error reporting service

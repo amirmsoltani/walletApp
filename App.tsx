@@ -1,12 +1,15 @@
-import 'react-native-gesture-handler';
+import "react-native-gesture-handler";
 
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { Provider } from "react-redux";
 
-import { useColorScheme } from './hooks/useColorScheme';
-import { useLoadedAssets } from './hooks/useLoadedAssets';
-import Navigation from './navigation';
+import { useColorScheme } from "./hooks/useColorScheme";
+import { useLoadedAssets } from "./hooks/useLoadedAssets";
+import Navigation from "./navigation";
+
+import { storeCreator } from "./store";
 
 export default function App() {
   const isLoadingComplete = useLoadedAssets();
@@ -17,8 +20,10 @@ export default function App() {
   } else {
     return (
       <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
+        <Provider store={storeCreator()}>
+          <Navigation colorScheme={colorScheme} />
+          <StatusBar translucent/>
+        </Provider>
       </SafeAreaProvider>
     );
   }

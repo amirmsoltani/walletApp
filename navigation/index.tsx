@@ -7,10 +7,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 import * as React from 'react';
 import { ColorSchemeName } from 'react-native';
 
-import NotFoundScreen from '../screens/NotFoundScreen';
+import { NotFoundScreen } from '../screens';
 import { RootStackParamList } from '../types';
-import BottomTabNavigator from './BottomTabNavigator';
 import LinkingConfiguration from './LinkingConfiguration';
+import Tabs from "./Tabs";
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -28,8 +28,8 @@ const Stack = createStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Root" component={BottomTabNavigator} />
+    <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName={'Home'}>
+      <Stack.Screen name="Home" component={Tabs} />
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
     </Stack.Navigator>
   );

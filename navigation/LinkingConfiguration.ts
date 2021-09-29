@@ -9,21 +9,36 @@ export default {
   prefixes: [Linking.createURL("/")],
   config: {
     screens: {
-      Root: {
+      Home: {
         screens: {
-          TabOne: {
+          Home: {
             screens: {
-              TabOneScreen: "one",
-            },
+              TabOneScreen: "home"
+            }
           },
-          TabTwo: {
+          Portfolio: {
             screens: {
-              TabTwoScreen: "two",
-            },
+              TabTwoScreen: "portfolio"
+            }
           },
-        },
+          Trade: {
+            screens: {
+              TabTwoScreen: "trade"
+            }
+          },
+          Market: {
+            screens: {
+              TabTwoScreen: "market"
+            }
+          },
+          Profile: {
+            screens: {
+              TabTwoScreen: "profile"
+            }
+          }
+        }
       },
-      NotFound: "*",
-    },
-  },
+      NotFound: "*"
+    }
+  }
 };
